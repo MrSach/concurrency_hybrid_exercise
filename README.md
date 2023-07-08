@@ -73,3 +73,25 @@ It would also be useful to develop multithreaded applications to read and write 
 
 # Compile from Source
 
+POSIX systems:
+Tested on the following system:
+-  Linux 6.3.8-200
+-  Fedora 38
+-  GCC 13.1.1-4
+-  boost-program-options-1.78.0-11
+
+After cloning the repository onto your local machine, open a shell and assign the working directory as the root folder of the project.
+Next, run `sh ./build_posix.sh` into a bash shell.
+The resulting binary should be created here:
+> ./bin/Release/concurrency_hybrid_exercise
+
+Run the binary executable in a bash shell.
+
+Note that program arguments are supported.
+Add `--help` or `-h` after the executable path for more information.
+
+Windows systems:
+As this uses std::thread, it is recommended to use Cygwin and then follow the instructions for POSIX platforms in a Cygwin terminal shell.
+I have not tested this in Windows yet, so this remains a work in progress.
+Note: boost-program-options is a dependency, so that would also need to be installed and included when compiled and linked.
+
