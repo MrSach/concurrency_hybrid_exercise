@@ -1,4 +1,4 @@
-Concurrency - Hybrid Exercise
+# Concurrency - Hybrid Exercise
 
 Starting in mid 2022, following steady progress on basic and intermediate C++ skills, I wanted to explore more advanced C++ techniques.
 Clearly, I definitely had patience with C++, given the interest only grew through the intensive training and refinement of difficult concepts.
@@ -71,5 +71,5 @@ It would also be useful to develop multithreaded applications to read and write 
 
 ----
 
-#Compile from Source
+# Compile from Source
 
