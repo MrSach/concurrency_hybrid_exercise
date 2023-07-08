@@ -6,7 +6,7 @@ With adoption of multithreading over the years across software projects, it beca
 
 Starting with simple online examples across geeksforgeeks, medium, tutorialspoint, cppreference, and various other resources, I felt ready to replicate and learn from the different techniques and examples, and sometimes made minor adjustments in order to observe the impacts, which were generally fine.
 So far so good at this stage.
-Having already trained hard in understanding Function Objects (Functors), function pointers and lambda functions, as well as a refined understanding of the application of objects using Resource Acquisition is Initialised (RAII), familiarising myself with std::thread was rapid and I soon began my journey with C++ concurrency.
+Having already trained hard in understanding Function Objects (Functors), function pointers and lambda functions, as well as a refined understanding of the application of objects using Resource Acquisition is Initialised (RAII), familiarising myself with `std::thread` was rapid and I soon began my journey with C++ concurrency.
 
 First addressing the race conditions that broke thread safety, my first attempts to use the <mutex> library were successful.
 
@@ -19,7 +19,7 @@ A program that could use a dynamically calculated resource at runtime was my nex
 At the same time, I was weary of using C libraries in tandem with C++ STL objects.
 If the C++ STL provided a use, then the STL was to be explored first.
 
-Embracing a challenging journey with my next exercise, I spent months exploring how to work with using the <thread> library with <mutex> (std::mutex and std::lock_guard<T>(std::mutex), <memory> (smart pointers to allocate memory to the heap instead of the stack), <vector> (STL containers), <algorithm> (the std::for_each function), <iostream> (writing to a shared resource, the output stream), and Functors.
+Embracing a challenging journey with my next exercise, I spent months exploring how to work with using the `<thread>` library with `<mutex>` (`std::mutex` and `std::lock_guard<T>(std::mutex)`, `<memory>` (smart pointers to allocate memory to the heap instead of the stack), `<vector>` (STL containers), `<algorithm>` (the `std::for_each` function), `<iostream>` (writing to a shared resource, the output stream), and Functors.
 
 Initially this proved very difficult and I found this experiment unrealistic.
 Even Stack Overflow provided limited information for the obscure errors I encountered.
@@ -30,11 +30,11 @@ Also taking care when to pass by value and when to pass by reference, and when t
 This also gave a much greater appreciation for the use of RAII and how to use such objects that rely on it in C++.
 
 Even with the pointers perfect and the scoping of object lifetimes tested, I was perplexed with thread safety issues.
-Using std::vectors and std::unique_ptr appeared to have broken the thread safety that was previously fine.
+Using `std::vector`s and `std::unique_ptr`s appeared to have broken the thread safety that was previously fine.
 Persistent research saw me locate additional resources to persuade me to recondsider my methodology:
 > https://stackoverflow.com/questions/23620533/thread-safe-vector
 
-So, unsure whether the std::vector was even compatible with the std::thread data type, varying the use of STL Containers became the next workaround to this issue. Trying Queues, Deques, Arrays and Lists led to the same issue and I returned back to using vectors.
+So, unsure whether the `std::vector` was even compatible with the `std::thread` data type, varying the use of STL Containers became the next workaround to this issue. Trying Queues, Deques, Arrays and Lists led to the same issue and I returned back to using vectors.
 Perhaps the materials I consulted online were out of date?
 The C++ STL is evolving faster these days and the mechanisms that it uses for data types is becoming more comprehensive.
 Also having tried to use a mutex that did not belong to the Functor's class, I got stuck and found progress impossible.
@@ -68,3 +68,8 @@ Perhaps the next advancement is to explore thread management alongside lock-free
 Eventually I hope to also make use of GPU and CUDA programming libraries.
 
 It would also be useful to develop multithreaded applications to read and write to shared resources with effective thread control.
+
+----
+
+#Compile from Source
+
