@@ -1,5 +1,15 @@
 # Concurrency - Hybrid Exercise
 
+[![Terminal Program Example 1a](https://github.com/MrSach/concurrency_hybrid_exercise/blob/main/resource/image/thumb-1-a.png)](https://github.com/MrSach/concurrency_hybrid_exercise/blob/main/resource/image/thumb-1-a.png)
+
+[![Terminal Program Example 1b](https://github.com/MrSach/concurrency_hybrid_exercise/blob/main/resource/image/thumb-1-b.png)](https://github.com/MrSach/concurrency_hybrid_exercise/blob/main/resource/image/thumb-1-b.png)
+
+[![Terminal Program Example 1c](https://github.com/MrSach/concurrency_hybrid_exercise/blob/main/resource/image/thumb-1-c.png)](https://github.com/MrSach/concurrency_hybrid_exercise/blob/main/resource/image/thumb-1-c.png)
+
+
+
+
+
 Starting in mid 2022, following steady progress on basic and intermediate C++ skills, I wanted to explore more advanced C++ techniques.
 Clearly, I definitely had patience with C++, given the interest only grew through the intensive training and refinement of difficult concepts.
 With adoption of multithreading over the years across software projects, it became evident that this would be a useful C++ skillset to explore.
