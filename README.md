@@ -101,7 +101,7 @@ Note that program arguments are supported.
 Add `--help` or `-h` after the executable path for more information.
 
 Windows systems:
-As this uses std::thread, it is recommended to use Cygwin and then follow the instructions for POSIX platforms in a Cygwin terminal shell.
+As this uses `std::thread`, it is recommended to use Cygwin and then follow the instructions for POSIX platforms in a Cygwin terminal shell.
 I have not tested this in Windows yet, so this remains a work in progress.
 Note: boost-program-options is a dependency, so that would also need to be installed and included when compiled and linked.
 
