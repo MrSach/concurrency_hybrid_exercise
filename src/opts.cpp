@@ -6,14 +6,6 @@
 #include "globals.hpp"
 #include "opts.hpp"
 
-/*
-	Constructor
-*/
-opts::opts ()
-{
-
-}
-
 opts::action opts::process_program_arg (int argc, char ** argv)
 {
 	std::cout << std::endl;
@@ -111,6 +103,7 @@ opts::action opts::process_program_arg (int argc, char ** argv)
 
 	std::cout << std::endl;
 
+	opts::act = opts::action::arged;
 	return opts::action::arged;
 }
 
@@ -122,4 +115,9 @@ const std::size_t opts::get_threads ()
 const std::size_t opts::get_loopers ()
 {
 	return opts::loop_number;
+}
+
+opts::action opts::get_action ()
+{
+	return opts::act;
 }
