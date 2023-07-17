@@ -2,6 +2,8 @@
 
 #include <cstdlib>
 
+#include "globals.hpp"
+
 class opts
 {
 	public:
@@ -9,7 +11,7 @@ class opts
 			Although the program argument handler is designed as a class, it is not designed to be instantiated.
 			Instead, member attributes are static as only one argument handler is needed here!
 		*/
-		opts ();
+		opts () = default;
 		~ opts () noexcept = default;
 		opts (const opts & po) = default;
 
@@ -18,7 +20,7 @@ class opts
 			Store these as unsigned long integers according to machine architecture.
 			Remember to keep this public access as this enumeration itself is used both in the object source and elsewhere in the program.
 		*/
-		enum class action : std::size_t {error = 0, help = 1, defaults = 2, arged = 3, other = 4};
+		enum class action : std::size_t {help = 0, arged = 1};
 
 		/*
 			This processes the arguments passed into the program.
@@ -31,6 +33,7 @@ class opts
 		*/
 		static const std::size_t get_threads ();
 		static const std::size_t get_loopers ();
+		static opts::action get_action ();
 
 	protected:
 
@@ -40,6 +43,7 @@ class opts
 		*/
 		static inline std::size_t thread_number {concurrency_hybrid_exercise::threads_default};
 		static inline std::size_t loop_number {concurrency_hybrid_exercise::loops_default};
+		static inline opts::action act {opts::action::help};
 
 	private:
 };

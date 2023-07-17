@@ -1,10 +1,9 @@
 #pragma once
 
+#include <memory>
 #include <mutex>
 #include <iostream>
 #include <cstdlib>
-
-#include "globals.hpp"
 
 /*
 	Functor Object.
@@ -34,22 +33,19 @@ protected:
 	*/
 	static inline size_t total_created {0};
 
-	/*
-		This is the number of times to write the output on the output stream.
-	*/
-	static inline size_t output_total {concurrency_hybrid_exercise::loops_default};
-
 public:
 	thread_obj ();
-	thread_obj (const size_t & output_count);
 	~ thread_obj () = default;
-	thread_obj (const thread_obj & obj) = default;
+	thread_obj (const thread_obj & obj) = delete;
 	thread_obj (thread_obj && resource);
-
-	static bool set_output_total (const std::size_t & loops);
 
 	/*
 		Function object - operator () - declaration.
 	*/
 	void operator () ();
 };
+
+/*
+	Generate vector for thread object with Functor as threaded function.
+*/
+std::unique_ptr <std::vector <std::unique_ptr <std::thread> > > thread_gen ();
