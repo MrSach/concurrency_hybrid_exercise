@@ -28,32 +28,6 @@
 #include "thread_obj.hpp"
 
 /*
-	Generate the smart pointer to the vector to the smart pointer to threads.
-	To simplify this very nested variable returned here, this essentially stores a vector of threads on the heap.
-	unique_ptr does not incur the instance counter performance penalty that is regularly encountered when using shared_ptr.
-	Another reason for this design decision is the incompatibility with using shared_ptr in some <algorithm> functions, especially before recent C++ standards!
-*/
-std::unique_ptr <std::vector <std::unique_ptr <std::thread> > > thread_gen ()
-{
-	std::unique_ptr <std::vector <std::unique_ptr <std::thread> > > arr
-	{std::make_unique <std::vector <std::unique_ptr <std::thread> > > ()};
-
-	for (size_t i {1}; i <= opts::get_threads(); ++i)
-	{
-		/*
-			Debug - used for checking dynamic memory allocation
-		*/
-
-		arr->push_back
-		(
-			std::make_unique <std::thread> (thread_obj (opts::get_loopers()) )
-		);
-	}
-
-	return arr;
-}
-
-/*
 	Main function
 */
 int main (int argc, char ** argv)
@@ -75,23 +49,16 @@ int main (int argc, char ** argv)
 		/*
 			Process arguments using the program arguments object, "opts".
 			As the member attributes of relevance are static, just call the relevant member method of the class.
+			If the program arguments are processed correctly, this will be "arged".
+			If the user requests for help, or there is an error in processing the program arguments, this will instead default to "help" and the program will then terminate.
 		*/
-		opts::action act
-		{
-			opts::process_program_arg (argc, argv)
-		};
+		opts::process_program_arg (argc, argv);
 
-		if (act == opts::action::help)
+		if (opts::get_action() == opts::action::help)
 		{
 			return 0;
 		}
 	}
-
-	/*
-		Get the loop count from the program options argument object and buffer to the thread_obj object.
-		This Functor is used to loop through each thread and to write to the output stream.
-	*/
-	thread_obj::set_output_total(opts::get_loopers());
 
 	/*
 		Generate the smart pointer to the vector of threads using the function defined earlier.
